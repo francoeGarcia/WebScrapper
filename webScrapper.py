@@ -51,8 +51,8 @@ try:
         except Exception as e:
             print(f"ERROR occurred while processing element: {e}")
     
-    df = pd.DataFrame({'Nike Best Selling Shoes -> Product Name': models, 'Price': prices})
-    df.to_csv('sneakers.csv', index=False, encoding='utf-8')
+    df = pd.DataFrame({'Nike Best Selling -> Product Name': models, 'Price': prices})
+    df.to_csv('nikeBestSellers.csv', index=False, encoding='utf-8')
 
 except Exception as e:
     print(f"Error occurred: {e}\nhere\n")
