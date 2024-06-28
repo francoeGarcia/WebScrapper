@@ -4,6 +4,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 import pandas as pd
+import time
 
 site = 'https://www.nike.com/w/mens-best-76m50znik1'
 path = '/Users/franc/OneDrive/Documentos/chromedriver-win64/chromedriver.exe'
@@ -15,6 +16,21 @@ service = Service(executable_path=path)
 service.page_load_strategy = 'normal'
 driver = webdriver.Chrome(service=service)
 driver.get(site)
+
+# load all page contents by comparing prev with new height
+prev_height = driver.execute_script("return document.body.scrollHeight")
+while True:
+    # scroll page
+    driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+    # wait for new items to load if any
+    time.sleep(3)
+    # check new height
+    new_height = driver.execute_script("return document.body.scrollHeight")
+    # compare heights to check if all page contents loaded
+    if new_height == prev_height:
+        break
+    prev_height = new_height
+
 
 try:
     WebDriverWait(driver, 60).until(EC.presence_of_all_elements_located((By.XPATH, '//div[contains(@class, "css-1t0asop") and contains(@data-testid,"product-card")]')))
