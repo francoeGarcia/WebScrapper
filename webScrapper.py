@@ -17,7 +17,7 @@ driver = webdriver.Chrome(service=service)
 driver.get(site)
 
 try:
-    WebDriverWait(driver, 30).until(EC.presence_of_all_elements_located((By.XPATH, '//div[contains(@class, "css-1t0asop") and contains(@data-testid,"product-card")]')))
+    WebDriverWait(driver, 60).until(EC.presence_of_all_elements_located((By.XPATH, '//div[contains(@class, "css-1t0asop") and contains(@data-testid,"product-card")]')))
     data = driver.find_elements(By.XPATH, '//div[contains(@class, "css-1t0asop") and contains(@data-testid,"product-card")]')    
     for item in data:
         try:
