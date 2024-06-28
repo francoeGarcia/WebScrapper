@@ -44,4 +44,5 @@ except Exception as e:
     print(f"Error occurred: {e}\nhere\n")
 
 finally:
+    # quit driver, close everything down
     driver.quit()
