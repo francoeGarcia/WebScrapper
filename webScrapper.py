@@ -3,8 +3,6 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
-
-from bs4 import BeautifulSoup
 import pandas as pd
 
 site = 'https://www.nike.com/w/mens-best-76m50znik1'
@@ -20,7 +18,7 @@ driver.get(site)
 
 try:
     WebDriverWait(driver, 30).until(EC.presence_of_all_elements_located((By.XPATH, '//div[contains(@class, "css-1t0asop") and contains(@data-testid,"product-card")]')))
-    data = driver.find_elements(By.XPATH, '//div[contains(@class, "css-1t0asop") and contains(@data-testid,"product-card")]')
+    data = driver.find_elements(By.XPATH, '//div[contains(@class, "css-1t0asop") and contains(@data-testid,"product-card")]')    
     for item in data:
         try:
             # check if element meet criteria before proceeding
