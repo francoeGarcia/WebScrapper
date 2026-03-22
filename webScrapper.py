@@ -7,7 +7,7 @@ import pandas as pd
 import time
 
 site = 'https://www.nike.com/w/mens-best-76m50znik1'
-path = '/Users/franc/OneDrive/Documentos/chromedriver-win64/chromedriver.exe'
+path = 'enter/folder/path'
 
 models = []
 prices = []
